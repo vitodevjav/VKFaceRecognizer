@@ -18,18 +18,25 @@ class MainViewController: UIViewController {
 
     private lazy var loadButton: UIButton = {
         let button = UIButton()
+        button.setTitle("Load image", for: .normal)
+        button.backgroundColor = .blue
+        button.layer.cornerRadius = 20.0
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
 
     private lazy var detectButton: UIButton = {
         let button = UIButton()
+        button.setTitle("Detect", for: .normal)
+        button.backgroundColor = .blue
+        button.layer.cornerRadius = 20.0
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .white
         view.addSubview(imageView)
         view.addSubview(loadButton)
         view.addSubview(detectButton)
