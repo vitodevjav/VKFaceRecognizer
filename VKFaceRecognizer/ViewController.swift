@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
 
 class MainViewController: UIViewController {
 
@@ -41,6 +43,7 @@ class MainViewController: UIViewController {
         view.addSubview(loadButton)
         view.addSubview(detectButton)
         configureConstraints()
+        configureReactiveViews()
     }
 
     private func configureConstraints() {
@@ -60,6 +63,9 @@ class MainViewController: UIViewController {
             detectButton.heightAnchor.constraint(equalToConstant: 60.0),
             detectButton.widthAnchor.constraint(equalToConstant: 100.0),
             ])
+    }
+
+    private func configureReactiveViews() {
     }
 }
 
