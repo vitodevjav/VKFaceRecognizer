@@ -37,7 +37,22 @@ class MainViewController: UIViewController {
     }
 
     private func configureConstraints() {
+        NSLayoutConstraint.activate([
+            imageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 16.0),
+            imageView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 16.0),
+            imageView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -16.0),
+            imageView.widthAnchor.constraint(equalTo: imageView.heightAnchor),
 
+            loadButton.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 16.0),
+            loadButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 16.0),
+            loadButton.heightAnchor.constraint(equalToConstant: 60.0),
+            loadButton.widthAnchor.constraint(equalToConstant: 100.0),
+
+            detectButton.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 16.0),
+            detectButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -16.0),
+            detectButton.heightAnchor.constraint(equalToConstant: 60.0),
+            detectButton.widthAnchor.constraint(equalToConstant: 100.0),
+            ])
     }
 }
 
