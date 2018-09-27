@@ -92,6 +92,7 @@ class MainViewController: UIViewController {
 
 extension MainViewController: UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        interactor?.handleImages(with: info)
     }
 }
 

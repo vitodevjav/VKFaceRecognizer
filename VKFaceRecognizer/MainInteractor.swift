@@ -15,7 +15,8 @@ protocol MainInteractorProtocol {
 
 class MainInteractor: MainInteractorProtocol {
     func handleImages(with info: [UIImagePickerController.InfoKey : Any]) {
-        <#code#>
+        guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
+        
     }
 
     func detectFace() {
