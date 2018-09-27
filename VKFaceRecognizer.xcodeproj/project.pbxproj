@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7545E360215D168800BC2317 /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7545E35F215D168800BC2317 /* MainPresenter.swift */; };
 		754CD010215D0DB10079E767 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754CD00F215D0DB10079E767 /* AppDelegate.swift */; };
 		754CD012215D0DB10079E767 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754CD011215D0DB10079E767 /* ViewController.swift */; };
 		754CD018215D0DB10079E767 /* VKFaceRecognizer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 754CD016215D0DB10079E767 /* VKFaceRecognizer.xcdatamodeld */; };
@@ -18,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		2554A2D65D58BF48D361A10F /* Pods-VKFaceRecognizer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKFaceRecognizer.release.xcconfig"; path = "Pods/Target Support Files/Pods-VKFaceRecognizer/Pods-VKFaceRecognizer.release.xcconfig"; sourceTree = "<group>"; };
+		7545E35F215D168800BC2317 /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
 		754CD00C215D0DB10079E767 /* VKFaceRecognizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VKFaceRecognizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		754CD00F215D0DB10079E767 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		754CD011215D0DB10079E767 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 				754CD01E215D0DB20079E767 /* Info.plist */,
 				754CD016215D0DB10079E767 /* VKFaceRecognizer.xcdatamodeld */,
 				754CD024215D12C80079E767 /* MainInteractor.swift */,
+				7545E35F215D168800BC2317 /* MainPresenter.swift */,
 			);
 			path = VKFaceRecognizer;
 			sourceTree = "<group>";
@@ -102,6 +105,7 @@
 				754CD008215D0DB10079E767 /* Sources */,
 				754CD009215D0DB10079E767 /* Frameworks */,
 				754CD00A215D0DB10079E767 /* Resources */,
+				FE1EF2F3B8FE928A0E6E95B4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -176,6 +180,26 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		FE1EF2F3B8FE928A0E6E95B4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-VKFaceRecognizer/Pods-VKFaceRecognizer-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VKFaceRecognizer/Pods-VKFaceRecognizer-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -183,6 +207,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7545E360215D168800BC2317 /* MainPresenter.swift in Sources */,
 				754CD018215D0DB10079E767 /* VKFaceRecognizer.xcdatamodeld in Sources */,
 				754CD012215D0DB10079E767 /* ViewController.swift in Sources */,
 				754CD010215D0DB10079E767 /* AppDelegate.swift in Sources */,
@@ -328,7 +353,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = E97V2YY64X;
 				INFOPLIST_FILE = VKFaceRecognizer/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = qulix.VKFaceRecognizer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -344,7 +372,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = E97V2YY64X;
 				INFOPLIST_FILE = VKFaceRecognizer/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = qulix.VKFaceRecognizer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;

@@ -2,4 +2,4 @@
 *.xcworkspace
 xcuserdata
 
-Pods
+Pods/
