@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 
 protocol MainPresenterProtocol {
-    var selectedImage: Variable<UIImage> { get }
+    var selectedImage: Variable<UIImage> { get set }
 }
 
 class MainPresenter: MainPresenterProtocol {

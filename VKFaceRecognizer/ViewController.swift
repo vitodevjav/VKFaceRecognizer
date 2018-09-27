@@ -72,7 +72,7 @@ class MainViewController: UIViewController {
     private func presentPickerController() {
         let pickerController = UIImagePickerController()
         pickerController.delegate = self
-        navigationController?.pushViewController(pickerController, animated: true)
+        present(pickerController, animated: true, completion: nil)
     }
 
     private func configureReactiveViews() {
