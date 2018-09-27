@@ -6,5 +6,7 @@ target 'VKFaceRecognizer' do
   use_frameworks!
 
   # Pods for VKFaceRecognizer
+    pod 'RxSwift',    '~> 4.0'
+    pod 'RxCocoa',    '~> 4.0'
 
 end
