@@ -12,6 +12,7 @@
 		754CD018215D0DB10079E767 /* VKFaceRecognizer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 754CD016215D0DB10079E767 /* VKFaceRecognizer.xcdatamodeld */; };
 		754CD01A215D0DB20079E767 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 754CD019215D0DB20079E767 /* Assets.xcassets */; };
 		754CD01D215D0DB20079E767 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 754CD01B215D0DB20079E767 /* LaunchScreen.storyboard */; };
+		754CD025215D12C80079E767 /* MainInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754CD024215D12C80079E767 /* MainInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		754CD019215D0DB20079E767 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		754CD01C215D0DB20079E767 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		754CD01E215D0DB20079E767 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		754CD024215D12C80079E767 /* MainInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				754CD01B215D0DB20079E767 /* LaunchScreen.storyboard */,
 				754CD01E215D0DB20079E767 /* Info.plist */,
 				754CD016215D0DB10079E767 /* VKFaceRecognizer.xcdatamodeld */,
+				754CD024215D12C80079E767 /* MainInteractor.swift */,
 			);
 			path = VKFaceRecognizer;
 			sourceTree = "<group>";
@@ -137,6 +140,7 @@
 				754CD018215D0DB10079E767 /* VKFaceRecognizer.xcdatamodeld in Sources */,
 				754CD012215D0DB10079E767 /* ViewController.swift in Sources */,
 				754CD010215D0DB10079E767 /* AppDelegate.swift in Sources */,
+				754CD025215D12C80079E767 /* MainInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
