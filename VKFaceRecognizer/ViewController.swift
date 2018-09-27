@@ -14,7 +14,7 @@ class MainViewController: UIViewController {
     private let disposeBag = DisposeBag()
 
     var presenter: MainPresenterProtocol?
-    var interactor: MainInteractorProtocol?
+    var interactor: MainInteractorProtocol?
 
     private lazy var imageView: UIImageView = {
         let imageView = UIImageView()
@@ -69,18 +69,33 @@ class MainViewController: UIViewController {
             ])
     }
 
+    private func presentPickerController() {
+        let pickerController = UIImagePickerController()
+        pickerController.delegate = self
+        navigationController?.pushViewController(pickerController, animated: true)
+    }
+
     private func configureReactiveViews() {
         presenter?.selectedImage.asObservable()
             .bind(to: imageView.rx.image)
             .disposed(by: disposeBag)
 
         loadButton.rx.tap
-            .bind { self.interactor?.loadImage() }
+            .bind { self.presentPickerController() }
             .disposed(by: disposeBag)
 
         detectButton.rx.tap
             .bind { self.interactor?.detectFace() }
             .disposed(by: disposeBag)
     }
+}
+
+extension MainViewController: UIImagePickerControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    }
+}
+
+extension MainViewController: UINavigationControllerDelegate {
+    
 }
 

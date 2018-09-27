@@ -8,14 +8,14 @@
 
 import UIKit
 
-@objc protocol MainInteractorProtocol {
-    @objc func loadImage()
-    @objc func detectFace()
+protocol MainInteractorProtocol {
+    func handleImages(with info: [UIImagePickerController.InfoKey : Any])
+    func detectFace()
 }
 
 class MainInteractor: MainInteractorProtocol {
-    func loadImage() {
-
+    func handleImages(with info: [UIImagePickerController.InfoKey : Any]) {
+        <#code#>
     }
 
     func detectFace() {
