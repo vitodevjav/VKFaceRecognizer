@@ -15,7 +15,6 @@ import UIKit
 
 class MainInteractor: MainInteractorProtocol {
     func loadImage() {
-        let picker = UIImagePickerController()
 
     }
 
