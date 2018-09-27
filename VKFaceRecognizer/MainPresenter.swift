@@ -24,5 +24,4 @@ class MainPresenter: MainPresenterProtocol {
 
         selectedImage = Variable(placeholder)
     }
-
 }

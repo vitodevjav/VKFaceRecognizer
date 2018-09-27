@@ -11,6 +11,10 @@ import RxCocoa
 import RxSwift
 
 class MainViewController: UIViewController {
+    private let disposeBag = DisposeBag()
+
+    var presenter: MainPresenterProtocol?
+    var interactor: MainInteractorProtocol?
 
     private lazy var imageView: UIImageView = {
         let imageView = UIImageView()
@@ -66,6 +70,17 @@ class MainViewController: UIViewController {
     }
 
     private func configureReactiveViews() {
+        presenter?.selectedImage.asObservable()
+            .bind(to: imageView.rx.image)
+            .disposed(by: disposeBag)
+
+        loadButton.rx.tap
+            .bind { self.interactor?.loadImage() }
+            .disposed(by: disposeBag)
+
+        detectButton.rx.tap
+            .bind { self.interactor?.detectFace() }
+            .disposed(by: disposeBag)
     }
 }
 
