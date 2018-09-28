@@ -131,9 +131,9 @@ class MainViewController: UIViewController {
     private func showAlert(message: String) {
         let alertController = UIAlertController.init(title: message, message: nil, preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { _ in
-            self.dismiss(animated: true, completion: nil)
+            self.dismiss(animated: true) { self.interactor?.resetState() }
         }))
-        present(alertController, animated: true, completion: nil)
+        present(alertController, animated: true)
     }
 }
 

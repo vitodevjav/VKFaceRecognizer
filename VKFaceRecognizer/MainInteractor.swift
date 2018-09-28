@@ -11,21 +11,30 @@ import Vision
 import CoreGraphics
 
 protocol MainInteractorProtocol {
+    func resetState()
     func handleImages(with info: [UIImagePickerController.InfoKey : Any])
     func detectFace()
 }
 
 class MainInteractor: MainInteractorProtocol {
     var presenter: MainPresenterProtocol?
+
+    func resetState() {
+        presenter?.state.value = .ready
+    }
+
     func handleImages(with info: [UIImagePickerController.InfoKey : Any]) {
+        presenter?.state.value = .loading
         guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
             presenter?.state.value = .failed(error: DetectionError.imageNotSelected)
             return
         }
         presenter?.selectedImage.value = image
+        presenter?.state.value = .ready
     }
 
     func detectFace() {
+        presenter?.state.value = .detecting
         guard let cgImage = presenter?.selectedImage.value.cgImage else {
             presenter?.state.value = .failed(error: DetectionError.convertionError)
             return
