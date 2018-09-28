@@ -54,6 +54,7 @@ class MainViewController: UIViewController {
         view.addSubview(imageView)
         view.addSubview(loadButton)
         view.addSubview(detectButton)
+        view.addSubview(activityIndicator)
         configureConstraints()
         configureReactiveViews()
     }
@@ -106,7 +107,7 @@ class MainViewController: UIViewController {
 
     private func updateViewState(with state: DetectionState) {
         switch state {
-        case .ready, .error, .detectionFinished:
+        case .ready, .failed, .detectionFinished:
             loadButton.isEnabled = true
             detectButton.isEnabled = true
             activityIndicator.isHidden = true
@@ -117,6 +118,22 @@ class MainViewController: UIViewController {
             activityIndicator.isHidden = false
             activityIndicator.startAnimating()
         }
+
+        if case .failed(let error) = state {
+            showAlert(message: error.localizedDescription)
+        }
+
+        if case .detectionFinished(let faceCount) = state {
+            showAlert(message: "\(faceCount) face(s) detected.")
+        }
+    }
+
+    private func showAlert(message: String) {
+        let alertController = UIAlertController.init(title: message, message: nil, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { _ in
+            self.dismiss(animated: true, completion: nil)
+        }))
+        present(alertController, animated: true, completion: nil)
     }
 }
 
