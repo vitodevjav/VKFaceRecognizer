@@ -40,4 +40,12 @@ enum DetectionState {
 
 enum DetectionError: Error {
     case imageNotSelected, convertionError, unexpectedResultFormat
+
+    var localizedDescription: String {
+        switch self {
+        case .imageNotSelected: return "Error when selecting image."
+        case .convertionError: return "Error when converting image."
+        case .unexpectedResultFormat: return "Error when detexcting faces."
+        }
+    }
 }
