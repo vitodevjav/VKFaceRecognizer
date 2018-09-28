@@ -40,6 +40,14 @@ class MainViewController: UIViewController {
         return button
     }()
 
+    private lazy var activityIndicator: UIActivityIndicatorView = {
+        let activity = UIActivityIndicatorView(style: .whiteLarge)
+        activity.translatesAutoresizingMaskIntoConstraints = false
+        activity.color = .blue
+        activity.isHidden = true
+        return activity
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -66,6 +74,9 @@ class MainViewController: UIViewController {
             detectButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -16.0),
             detectButton.heightAnchor.constraint(equalToConstant: 60.0),
             detectButton.widthAnchor.constraint(equalToConstant: 100.0),
+
+            activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            activityIndicator.topAnchor.constraint(equalTo: loadButton.bottomAnchor, constant: 16.0)
             ])
     }
 
@@ -81,9 +92,8 @@ class MainViewController: UIViewController {
             .disposed(by: disposeBag)
 
         presenter?.state.asObservable()
-            .subscribe(onNext: { state in
-                // implement view updating
-            })
+            .subscribe(onNext: { state in self.updateViewState(with: state) })
+            .disposed(by: disposeBag)
 
         loadButton.rx.tap
             .bind { self.presentPickerController() }
@@ -92,6 +102,21 @@ class MainViewController: UIViewController {
         detectButton.rx.tap
             .bind { self.interactor?.detectFace() }
             .disposed(by: disposeBag)
+    }
+
+    private func updateViewState(with state: DetectionState) {
+        switch state {
+        case .ready, .error, .detectionFinished:
+            loadButton.isEnabled = true
+            detectButton.isEnabled = true
+            activityIndicator.isHidden = true
+            activityIndicator.stopAnimating()
+        case .loading, .detecting:
+            loadButton.isEnabled = false
+            detectButton.isEnabled = false
+            activityIndicator.isHidden = false
+            activityIndicator.startAnimating()
+        }
     }
 }
 
