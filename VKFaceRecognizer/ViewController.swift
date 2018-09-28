@@ -92,7 +92,7 @@ class MainViewController: UIViewController {
 
 extension MainViewController: UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let _ = presentedViewController as? UIImagePickerController {
+        if presentedViewController as? UIImagePickerController != nil {
             dismiss(animated: true, completion: { self.interactor?.handleImages(with: info) })
         }
     }
