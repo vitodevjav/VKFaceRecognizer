@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Vision
+import CoreGraphics
 
 protocol MainInteractorProtocol {
     func handleImages(with info: [UIImagePickerController.InfoKey : Any])
@@ -21,6 +23,20 @@ class MainInteractor: MainInteractorProtocol {
     }
 
     func detectFace() {
+        guard let cgImage = presenter?.selectedImage.value.cgImage else { return } // update error state
+
+        let request = VNDetectFaceLandmarksRequest(completionHandler: didFinishScaningImage)
+        let requestHandler = VNImageRequestHandler(cgImage: cgImage, options: [:])
+        do {
+            try requestHandler.perform([request])
+        } catch {
+            print(error) // error state
+        }
+    }
+
+    private func didFinishScaningImage(request: VNRequest, error: Error?) {
+        if error != nil { } // error state
+        guard let results = request.results as? [VNFaceObservation] else { return } // error state
 
     }
 }
