@@ -31,5 +31,9 @@ class MainPresenter: MainPresenterProtocol {
 }
 
 enum DetectionState {
-    case ready, loading, error(description: String), detecting, success(result: String)
+    case ready, loading, error(description: String), detecting, detectionFinished(faceCount: Int)
+
+    var description: String {
+        return "Description" // implement description
+    }
 }

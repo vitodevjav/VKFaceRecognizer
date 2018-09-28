@@ -23,7 +23,7 @@ class MainInteractor: MainInteractorProtocol {
     }
 
     func detectFace() {
-        guard let cgImage = presenter?.selectedImage.value.cgImage else { return } // update error state
+        guard let cgImage = presenter?.selectedImage.value.cgImage else { return } // error state
 
         let request = VNDetectFaceLandmarksRequest(completionHandler: didFinishScaningImage)
         let requestHandler = VNImageRequestHandler(cgImage: cgImage, options: [:])
@@ -37,5 +37,6 @@ class MainInteractor: MainInteractorProtocol {
     private func didFinishScaningImage(request: VNRequest, error: Error?) {
         if error != nil { } // error state
         guard let results = request.results as? [VNFaceObservation] else { return } // error state
+        presenter?.state.value = .detectionFinished(faceCount: results.count)
     }
 }

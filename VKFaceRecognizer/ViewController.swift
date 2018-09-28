@@ -80,6 +80,11 @@ class MainViewController: UIViewController {
             .bind(to: imageView.rx.image)
             .disposed(by: disposeBag)
 
+        presenter?.state.asObservable()
+            .subscribe(onNext: { state in
+                // implement view updating
+            })
+
         loadButton.rx.tap
             .bind { self.presentPickerController() }
             .disposed(by: disposeBag)
