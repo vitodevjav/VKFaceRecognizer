@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7545E360215D168800BC2317 /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7545E35F215D168800BC2317 /* MainPresenter.swift */; };
+		7545E362215D28A400BC2317 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7545E361215D28A400BC2317 /* MainRouter.swift */; };
 		754CD010215D0DB10079E767 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754CD00F215D0DB10079E767 /* AppDelegate.swift */; };
 		754CD012215D0DB10079E767 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754CD011215D0DB10079E767 /* ViewController.swift */; };
 		754CD018215D0DB10079E767 /* VKFaceRecognizer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 754CD016215D0DB10079E767 /* VKFaceRecognizer.xcdatamodeld */; };
@@ -20,6 +21,7 @@
 /* Begin PBXFileReference section */
 		2554A2D65D58BF48D361A10F /* Pods-VKFaceRecognizer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKFaceRecognizer.release.xcconfig"; path = "Pods/Target Support Files/Pods-VKFaceRecognizer/Pods-VKFaceRecognizer.release.xcconfig"; sourceTree = "<group>"; };
 		7545E35F215D168800BC2317 /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
+		7545E361215D28A400BC2317 /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
 		754CD00C215D0DB10079E767 /* VKFaceRecognizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VKFaceRecognizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		754CD00F215D0DB10079E767 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		754CD011215D0DB10079E767 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 				754CD016215D0DB10079E767 /* VKFaceRecognizer.xcdatamodeld */,
 				754CD024215D12C80079E767 /* MainInteractor.swift */,
 				7545E35F215D168800BC2317 /* MainPresenter.swift */,
+				7545E361215D28A400BC2317 /* MainRouter.swift */,
 			);
 			path = VKFaceRecognizer;
 			sourceTree = "<group>";
@@ -214,6 +217,7 @@
 				754CD012215D0DB10079E767 /* ViewController.swift in Sources */,
 				754CD010215D0DB10079E767 /* AppDelegate.swift in Sources */,
 				754CD025215D12C80079E767 /* MainInteractor.swift in Sources */,
+				7545E362215D28A400BC2317 /* MainRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,7 +359,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = E97V2YY64X;
 				INFOPLIST_FILE = VKFaceRecognizer/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = qulix.VKFaceRecognizer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -371,7 +378,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = E97V2YY64X;
 				INFOPLIST_FILE = VKFaceRecognizer/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = qulix.VKFaceRecognizer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
