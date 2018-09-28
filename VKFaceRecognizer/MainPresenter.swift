@@ -12,10 +12,13 @@ import RxCocoa
 
 protocol MainPresenterProtocol {
     var selectedImage: Variable<UIImage> { get set }
+    var state: Variable<DetectionState> { get set }
+
 }
 
 class MainPresenter: MainPresenterProtocol {
     var selectedImage: Variable<UIImage>
+    var state: Variable<DetectionState>
 
     init() {
         guard let placeholder = UIImage(named: "imagePlaceholder") else {
@@ -23,5 +26,10 @@ class MainPresenter: MainPresenterProtocol {
         }
 
         selectedImage = Variable(placeholder)
+        state = Variable(.ready)
     }
+}
+
+enum DetectionState {
+    case ready, loading, error(description: String), detecting, success(result: String)
 }

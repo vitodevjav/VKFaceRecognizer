@@ -37,6 +37,5 @@ class MainInteractor: MainInteractorProtocol {
     private func didFinishScaningImage(request: VNRequest, error: Error?) {
         if error != nil { } // error state
         guard let results = request.results as? [VNFaceObservation] else { return } // error state
-
     }
 }
