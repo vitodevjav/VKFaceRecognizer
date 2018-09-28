@@ -31,9 +31,13 @@ class MainPresenter: MainPresenterProtocol {
 }
 
 enum DetectionState {
-    case ready, loading, error(description: String), detecting, detectionFinished(faceCount: Int)
+    case ready, loading, failed(error: Error), detecting, detectionFinished(faceCount: Int)
 
     var description: String {
         return "Description" // implement description
     }
+}
+
+enum DetectionError: Error {
+    case imageNotSelected, convertionError, unexpectedResultFormat
 }

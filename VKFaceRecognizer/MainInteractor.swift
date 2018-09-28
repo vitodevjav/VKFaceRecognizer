@@ -18,7 +18,10 @@ protocol MainInteractorProtocol {
 class MainInteractor: MainInteractorProtocol {
     var presenter: MainPresenterProtocol?
     func handleImages(with info: [UIImagePickerController.InfoKey : Any]) {
-        guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
+        guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
+            presenter?.state.value = .error(description: "")
+            return
+        }
         presenter?.selectedImage.value = image
     }
 
